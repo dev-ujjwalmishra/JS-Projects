@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    min-height: 700px;
+    background-color: darkgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    background-color: cornflowerblue;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+.card h1{
+    text-align: center;
+    margin-bottom: 35px;
+    color: yellow;
+}
+
+.card img{
+    width: 250px;
+}
+
+.card button{
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: yellow;
+    font-size: 17px;
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5) inset;
+    transition: 0.2s ease-in-out;
+}
+
+.card button:hover{
+    transform: scale(0.95);
+}
+
+.card button:last-child{
+    background-color: gray;
+}
