@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            min-height: 800px;
+            background-color: gray;
+        }
+
+        .card{
+            width: 500px;
+            height: 500px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .left, .right {
+            width: 50%;
+            border: 2px solid gray;
+        }
+
+        .left img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="cont">
+        <div class="card" id="cardCont">
+            
+        </div>
+    </div>
+    <!-- https://restcountries.com/v3.1/name/{name}?fullText=true -->
+
+    <noscript>Please Enable JavaScript...</noscript>
+    <script>
+        const cardCont = document.querySelector('#cardCont');
+
+        const request = new XMLHttpRequest();
+
+        request.open("GET","https://restcountries.com/v2/name/nepal");
+
+        request.send();
+
+        request.addEventListener('load',function () {
+            // console.log(this.responseText);
+
+            const [data] = JSON.parse(this.responseText);
+
+            const htmlData = `
+                <div class="left">
+                <img src="${data.flags.svg}" alt="${data.nativeName}">
+            </div>
+            <div class="right">
+                <h1>Country : ${data.name}</h1>
+                <p>Capital : ${data.capital}</p>
+                <p>Population : ${data.population}</p>
+                <p>Language : ${data.languages[0].name}</p>
+                <p>Currency : ${data.currencies[0].name}</p>
+            </div>
+            `;
+
+            cardCont.insertAdjacentHTML("afterbegin",htmlData);
+
+        });
+
+
+    </script>
+</body>
+</html>
