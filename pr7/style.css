@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #002379;
+}
+
+.header{
+    padding: 25px 15px;
+    background-color: #002379;
+}
+
+.header i{
+    color: #FF5F00;
+    font-size: 25px;
+    
+}
+
+.header i span{
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    vertical-align: center;
+}
+
+.container{
+    background-color: #2C4E80;
+    padding: 15px;
+    height: calc(100vh - 76px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.btn-container{
+    height: 50px;
+    position: relative;
+}
+
+.btn-container button{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: #FF5F00;
+    color: #002379;
+    transition: 0.2s ease-in-out;
+}
+
+.btn-container button:hover{
+    background-color: #002379;
+    color: #FF5F00;
+    cursor: pointer;
+}
+
+.notes-container{
+    padding: 10px 15px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.note{
+    height: 200px;
+    min-width: 300px;
+    background-color: #002379;
+    border-radius: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-color: #FF9F66 #002379 ;
+}
+
+.icons{
+    overflow: auto;
+    padding-right: 5px;
+    padding-top: 10px;
+    margin-bottom: 8px;
+}
+
+.icons button{
+    float: right;
+    background-color: #2C4E80;
+    color: #FF9F66;
+}
+
+.icons button:first-child{
+    padding: 6px 7px;
+    border-radius: 50%;
+}
+
+.icons button:last-child{
+    margin-right: 10px;
+    padding: 6px 8.5px;
+    border-radius: 50%;
+    
+}
+
+.icons button:hover{
+    cursor: pointer;
+    color:#FF5F00;
+}
+
+.note-txt{
+    width: 300px;
+    padding: 5px 10px;
+    font-size: 18px;
+    color: #FFFF80;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+}
+
+.note textarea{
+    background-color: #002379;
+    min-height: 73%;
+    width: 100%;
+    color: #FFFAE6;
+    font-size: 17px;
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.hidden{
+    display: none;
+}
