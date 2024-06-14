@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Thermometer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- css -->
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            height: 100vh;
+            min-height: 700px;
+            background-color: gray;
+            display: grid;
+            place-items: center;
+        }
+
+        .card h1{
+            font-size: 120px;
+            color: white;
+            font-family: cursive;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h1>The Thermometer <span id="temp" class="fa"></span></h1>
+        </div>
+    </div>
+    
+    <!-- js -->
+    <script>
+        const tempLoad = () => {
+            let temp = document.querySelector('#temp');
+            temp.innerHTML = '&#xf2cb;';
+            temp.style.color = "white";
+            setTimeout(() => {
+                temp.innerHTML = '&#xf2ca;';
+                temp.style.color = "green";
+            },1000);
+
+            setTimeout(() => {
+                temp.innerHTML = '&#xf2c9;';
+                temp.style.color = "yellow";
+            },2000);
+
+            setTimeout(() => {
+                temp.innerHTML = '&#xf2c8;';
+                temp.style.color = "yellow";
+            },3000);
+
+            setTimeout(() => {
+                temp.innerHTML = '&#xf2c7;';
+                temp.style.color = "red";
+            },4000);
+        }
+
+        tempLoad();
+
+        setInterval(tempLoad,5000);
+    </script>
+</body>
+</html>
