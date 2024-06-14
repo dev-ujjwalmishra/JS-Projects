@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Counter of Website</title>
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: cornflowerblue;
+        }
+
+        .card-container{
+            min-width: 700px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card{
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .card p:first-child{
+            font-size: 50px;
+            color: antiquewhite;
+            margin-bottom: 23px;
+        }
+
+        .counter {
+            font-size: 50px;
+            color: yellow;
+            margin-bottom: 25px;
+        }
+
+        .card p:last-child{
+            font-size: 23px;
+            color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <p class="fa">&#xf0f4;</p>
+                <div class="counter" data-target="4000">0</div>
+                <p>Project Completed</p>
+            </div>
+            <div class="card">
+                <p class="fa">&#xf0c0;</p>
+                <div class="counter" data-target="15000">0</div>
+                <p>Our Happy Clients</p>
+            </div>
+            <div class="card">
+                <p class="fa">&#xf0ae;</p>
+                <div class="counter" data-target="500">0</div>
+                <p>OnGoing Projects</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- script -->
+     <script>
+        let counters = document.querySelectorAll('.counter');
+
+
+        counters.forEach((element) => {
+            // console.log(element);
+            element.innerHTML = 0;
+            // console.log(element);
+
+            const updateCounter = () => {
+                const targetCount = element.getAttribute('data-target');
+                // console.log(typeof pa(targetCount));
+
+                const initialCount = Number(element.innerHTML);
+                console.log(initialCount);
+
+                const incr = targetCount / 100;
+
+                if(initialCount < targetCount) {
+                    element.innerHTML = `${Math.trunc(initialCount + incr)}`;
+                    setTimeout(updateCounter,10);
+                }
+                else{
+                    element.innerHTML = targetCount
+                }
+            }
+
+            updateCounter();
+        })
+     </script>
+</body>
+</html>
