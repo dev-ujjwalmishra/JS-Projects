@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .container{
+            height: 100vh;
+            min-height: 800px;
+            background-color: grey;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card{
+            background-color: white;
+            box-sizing: border-box;
+            width: 500px;
+            min-height: 300px;
+            padding: 15px;
+            border-radius: 25px;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .card h3{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            /* margin-top: 20px; */
+            margin-bottom: 20px;
+            color: gray;
+        }
+
+        #joke{
+            font-size: 20px;
+            font-family: cursive;
+            /* color: gray; */
+            text-align: justify;
+            box-sizing: border-box;
+            padding: 0 15px;
+        }
+
+        #nextBtn{
+            cursor: pointer;
+            background-color: coral;
+            font-size: 15px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+            margin-top: 25px;
+
+            transition: 0.2s ease-in;
+            
+        }
+
+        #nextBtn:hover{
+            transform: scale(1.05);
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h3>😍😍 Best Jokes to make your day 👻👻</h3>
+            <div id="joke">
+                Awesome Joke is Loading...
+            </div>
+            <button id="nextBtn">Next Joke</button>
+        </div>
+    </div>
+
+    <noscript>Please enable JavaScript</noscript>
+    <script>
+        // https://icanhazdadjoke.com/
+
+        const jokes = document.querySelector('#joke');
+        const nextBtn = document.querySelector('#nextBtn');
+
+        // const setHeader = {
+        //     headers: {
+        //         Accept: "application/json"
+        //     }
+        // }
+
+        // const generateJokes = () => {
+        //     fetch('https://icanhazdadjoke.com',setHeader)
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         jokes.innerHTML = data.joke;
+        //     })
+        //     .catch((err) =>{
+        //         console.log(err);
+        //     })
+        // }
+
+
+
+
+        // async-await
+
+        const headerSet = {
+            headers : {
+                Accept : "application/json"
+            }
+        };
+
+        const generateJokes = async () => {
+            try{
+                const res = await fetch('https://icanhazdadjoke.com',headerSet);
+
+            // console.log(res);
+
+            const data = await res.json();
+
+            // console.log(data.joke);
+
+            jokes.innerHTML = data.joke;
+            }catch(err){
+                console.log(`the err is : ${err}`);
+            }
+        }
+
+        
+
+
+
+        nextBtn.addEventListener('click',generateJokes);
+        generateJokes();
+    </script>
+</body>
+</html>
